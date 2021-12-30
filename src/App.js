@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ReactPageScroller from 'react-page-scroller';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Components
+import ScreenHello from "./screens/screen_hello";
+import ScreenTimeline from "./screens/screen_timeline";
+
+const App = () => {
+    const [currentPage, setCurrentPage] = useState(0);
+
+    const handlePageChange = (number) => setCurrentPage(number);
+
+    const handleBeforePageChange = (number) => console.log(number);
+
+    return(
+        <React.Fragment style={{ display: 'flex', flex: 1, width: '100vw', height: '100vh' }}>
+            <ReactPageScroller
+                pageOnChange={handlePageChange}
+                onBeforePageScroll={handleBeforePageChange}
+                customPageNumber={currentPage}>
+                {/* First Page */}
+                <ScreenHello/>
+
+                {/* Second Page */}
+                <ScreenTimeline/>
+            </ReactPageScroller>
+        </React.Fragment>
+    )
 }
 
 export default App;

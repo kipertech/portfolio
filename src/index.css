@@ -5,9 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Circular Std", serif;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family: 'Circular Std';
+  src: local('Circular Std'), url(./fonts/CircularStd-Book.otf) format('opentype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Circular Std';
+  src: local('Circular Std'), url(./fonts/CircularStd-Bold.otf) format('opentype');
+  font-weight: bold;
 }
